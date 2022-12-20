@@ -11,7 +11,7 @@ export function App() {
         <GlobalStyles />
 
         <Router />  
-      <ThemeProvider />  
+      </ThemeProvider>  
     </BrowserRouter>
   );
 }

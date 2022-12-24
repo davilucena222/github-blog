@@ -6,7 +6,24 @@ import { ExternalLink } from "../../../../components/ExternalLink";
 import { ExternalLinkArrow } from "../../../../components/ExternalLinkArrow";
 import { PostHeaderContainer } from "./styles";
 
-export function PostHeader() {
+interface PostHeaderPropsInfo {
+  title: string;
+  body: string;
+  created_at: string;
+  number: number;
+  html_url: string;
+  comments: string;
+  user: {
+    login: string;
+  };
+  isLoading: boolean;
+}
+
+interface PostHeaderProps {
+  post: PostHeaderPropsInfo;
+}
+
+export function PostHeader({ post }: PostHeaderProps) {
   const navigate = useNavigate();
 
   function goBack() {
@@ -17,25 +34,25 @@ export function PostHeader() {
     <PostHeaderContainer>
       <header>
         <ExternalLinkArrow text="Voltar" href="#" onClick={goBack} />
-        <ExternalLink text="Ver no GitHub" href="#" target="_blank" />
+        <ExternalLink text="Ver no GitHub" href={post.html_url} target="_blank" />
       </header>
 
       <h1>
-        JavaScript data types and data structures
+        {post.title}
       </h1>
 
       <ul>
         <li>
           <FontAwesomeIcon icon={faGithub} />
-          cameronwll
+          {post.user.login}
         </li>
         <li>
           <FontAwesomeIcon icon={faCalendar} />
-          Há 1 dia
+          {post.created_at}
         </li>
         <li>
           <FontAwesomeIcon icon={faComment} />
-          5 comentários
+          {post.comments} comentários
         </li>
       </ul>
     </PostHeaderContainer>

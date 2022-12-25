@@ -30,7 +30,7 @@ This project was developed with the following tecnologies:
   
   The GitHub API was implemented in this project to get the profile data, issues and some informations about the repository that contains the issues. The issues was used as a content from a blog. 
 
-  To access the GitHub-Blog in production just click <a href="https://dt-money-black-eta.vercel.app/">here</a>.
+  To access the GitHub-Blog in production just click <a href="https://github-blog-jade.vercel.app/">here</a>.
 </p>
 
 # 🚀 Features

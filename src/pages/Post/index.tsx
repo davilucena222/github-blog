@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Loading } from "../../components/Loading";
 import { api } from "../../lib/axios";
+import { PostContent } from "./components/PostContent";
 import { PostHeader } from "./components/PostHeader";
 
 const username = import.meta.env.VITE_GITHUB_USERNAME;
@@ -16,7 +18,6 @@ interface PostProps {
   user: {
     login: string;
   };
-  isLoading: boolean;
 }
 
 export function Post() {
@@ -43,7 +44,10 @@ export function Post() {
 
   return (
     <> 
-     <PostHeader post={post} />
+     <PostHeader post={post} isLoading={isLoading} />
+     {isLoading ? <Loading /> : (
+      <PostContent content={post.body} />
+     )}
     </>
   );
 }
